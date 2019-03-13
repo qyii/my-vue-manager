@@ -81,10 +81,6 @@ export default {
     }
   },
 
-  mounted () {
-    // todo 检测是否已经登录
-  },
-
   destroyed () {
     clearInterval(smsTimer)
   },
