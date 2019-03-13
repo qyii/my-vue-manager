@@ -1,0 +1,72 @@
+$mythemecolor: #495060 !default;
+
+body, html {
+  margin: 0;
+  height: 100%;
+}
+
+#app {
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+  color: #2c3e50;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  .el-menu {
+    border: 0;
+  }
+}
+::-webkit-scrollbar {
+  width: 5px;
+  height: 7px;
+}
+
+::-webkit-scrollbar, ::-webkit-scrollbar-track-piece {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: hsla(225,4%,58%,.3);
+}
+
+#app .el-submenu .el-menu-item {
+  background: #1f2d3d !important;
+  &:hover {
+    background: #0f1d2d !important;
+  }
+}
+
+#app a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#app .el-menu-item-group__title {
+  padding: 0;
+}
+
+.full-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
+.edit-form {
+  width: 500px;
+  margin-left: 20px;
+}
+
+.el-aside {
+  background-color: $mythemecolor;
+  color: #f3f3f3;
+  text-align: center;
+  height: 100%;
+  z-index: 233;
+}
+
+.el-header {
+  background: #ffffff;
+  box-shadow: 0 2px 6px #dcdcdc;
+}
