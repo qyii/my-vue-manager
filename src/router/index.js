@@ -37,11 +37,11 @@ const router = new Router({
       name: '403',
       component: $403,
       meta: { noLayouts: true }
-    }
-    // ...SystemRouter
+    },
+    ...SystemRouter,
+    { path: '*', redirect: '/404', hidden: true }
   ]
 })
 
-router.addRoutes([...SystemRouter, { path: '*', redirect: '/404', hidden: true }])
 router.beforeEach(beforeEach)
 export default router

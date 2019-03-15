@@ -1,6 +1,9 @@
 <template>
   <div class="layout-head">
-    <p>欢迎{{username}}</p>
+    <div :class="isCollapse ? 'menu-spread-active' : 'menu-spread'" @click="handleSpread">
+      <my-icon class="menu-spread-icon" icon-class="spread"></my-icon>
+    </div>
+    <!-- <p>欢迎{{username}}</p> -->
     <el-dropdown @command="handleCommand">
       <span class="el-dropdown-link">
         <i class="profile"><img src="../../images/profile.jpg" alt=""></i>
@@ -45,6 +48,12 @@ export default {
       }
     }
   },
+
+  computed: {
+    isCollapse () {
+      return this.$store.state.isCollapse
+    }
+  },
   methods: {
     handleLogout () {
       this.$store.dispatch('LOGOUT').then(_ => {
@@ -52,6 +61,10 @@ export default {
         // 刷新当前页面让其自动跳转到登录页
         this.$router.go(0)
       })
+    },
+
+    handleSpread () {
+      this.$store.dispatch('TOGGLE_MENU')
     },
 
     handlepwdDialog () {
@@ -94,9 +107,30 @@ export default {
 
 <style lang="scss" scoped>
 .layout-head {
-  height: 100%;
-  p {
+  height: 60px;
+  background: #ffffff;
+  box-shadow: 0 1px 4px #d5d7f2;
+  .menu-spread {
+    height: 100%;
+    width: 60px;
     float: left;
+    cursor: pointer;
+    &:hover {
+      background-color: #f8f9fe;
+    }
+  }
+  .menu-spread-active {
+    @extend .menu-spread;
+    .menu-spread-icon {
+      transform: rotate(0);
+    }
+  }
+  .menu-spread-icon {
+    width: 1.5em;
+    height: 1.5em;
+    margin-left: 1em;
+    margin-top: 1em;
+    transform: rotate(180deg);
   }
   .el-dropdown {
     margin-top: 10px;

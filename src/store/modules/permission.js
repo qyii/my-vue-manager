@@ -6,8 +6,8 @@ const state = {
 }
 
 const actions = {
-  GET_ROUTES ({ commit }, params) {
-    commit('GET_ROUTES_SUCCESS', ['SysPassword'])
+  GET_ROUTES ({ commit }) {
+    commit('GET_ROUTES_SUCCESS', ['SysPassword', 'SysPermit'])
   }
 }
 

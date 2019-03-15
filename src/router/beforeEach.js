@@ -1,5 +1,5 @@
 import store from '@/store'
-import { LOGIN_PAGE_PATH } from '@/constants'
+import { LOGIN_PAGE_PATH, IGNORE_TABS } from '@/constants'
 
 export default function (to, from, next) {
   isAuthenticated().then(() => {
@@ -8,6 +8,10 @@ export default function (to, from, next) {
       next({
         path: '/403'
       })
+      return
+    }
+    if (!IGNORE_TABS[to.name]) {
+      store.dispatch('tabs/ADD', to)
     }
     if (to.path !== LOGIN_PAGE_PATH) {
       doNext(to, next)

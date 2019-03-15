@@ -1,28 +1,28 @@
 <template>
   <div>
     <el-row :gutter="40">
-      <div @click="handleChart(0)"><el-col :xs="12" :sm="12" :lg="6" class="my-card">
+      <div @click="handleChart(0)"><el-col :xs="24" :sm="12" :lg="6" class="my-card">
         <el-card shadow="hover" class="in-card">
           <my-icon class="peoples" icon-class="peoples" />
           活跃用户数
           <count-up :from="10" :to="10086"></count-up>
         </el-card>
       </el-col></div>
-      <div @click="handleChart(1)"><el-col :xs="12" :sm="12" :lg="6" class="my-card">
+      <div @click="handleChart(1)"><el-col :xs="24" :sm="12" :lg="6" class="my-card">
         <el-card shadow="hover" class="in-card">
           <my-icon class="play" icon-class="play" />
           新增点击
           <count-up :from="10000" :to="78563"></count-up>
         </el-card>
       </el-col></div>
-      <div @click="handleChart(2)"><el-col :xs="12" :sm="12" :lg="6" class="my-card">
+      <div @click="handleChart(2)"><el-col :xs="24" :sm="12" :lg="6" class="my-card">
         <el-card shadow="hover" class="in-card">
           <my-icon class="message" icon-class="message" />
           新增评论
           <count-up :from="60" :to="6789"></count-up>
         </el-card>
       </el-col></div>
-      <div @click="handleChart(3)"><el-col :xs="12" :sm="12" :lg="6" class="my-card">
+      <div @click="handleChart(3)"><el-col :xs="24" :sm="12" :lg="6" class="my-card">
         <el-card shadow="hover" class="in-card">
           <my-icon class="fensi" icon-class="fensi" />
           新增粉丝

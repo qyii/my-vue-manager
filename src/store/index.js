@@ -14,7 +14,8 @@ Vue.use(Vuex)
 const state = {
   userinfo: null,
   route: null,
-  showLayouts: false
+  showLayouts: false,
+  isCollapse: false // 菜单是否收起
 }
 
 const actions = {
@@ -43,12 +44,13 @@ const actions = {
     return promise
   },
   ON_CHANGE_ROUTE ({ commit }, route) {
-    setTimeout(() => {
-      commit('ON_CHANGE_ROUTE_SUCCESS', route)
-    }, 1000)
+    commit('ON_CHANGE_ROUTE_SUCCESS', route)
   },
   REDIRECT ({ commit }) {
     commit('TO_LOGIN')
+  },
+  TOGGLE_MENU ({ commit }) {
+    commit('TOGGLE_MENU_SUCCESS')
   },
   LAYOUTS_STATUS ({ commit }, route) {
     commit('ON_LAYOUTS_STATUS', route)
@@ -74,6 +76,9 @@ const mutations = {
     } else {
       state.showLayouts = true
     }
+  },
+  TOGGLE_MENU_SUCCESS (state) {
+    state.isCollapse = !state.isCollapse
   }
 }
 
