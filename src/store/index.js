@@ -7,7 +7,7 @@ import router from '@/router'
 import { getInfo } from '@/utils/tools'
 import { LOGIN_PAGE_PATH } from '@/constants'
 
-// import modules from './modules'
+import modules from './modules'
 
 Vue.use(Vuex)
 
@@ -43,7 +43,9 @@ const actions = {
     return promise
   },
   ON_CHANGE_ROUTE ({ commit }, route) {
-    commit('ON_CHANGE_ROUTE_SUCCESS', route)
+    setTimeout(() => {
+      commit('ON_CHANGE_ROUTE_SUCCESS', route)
+    }, 1000)
   },
   REDIRECT ({ commit }) {
     commit('TO_LOGIN')
@@ -78,6 +80,6 @@ const mutations = {
 export default new Vuex.Store({
   state,
   actions,
-  mutations
-  // modules: modules
+  mutations,
+  modules: modules
 })

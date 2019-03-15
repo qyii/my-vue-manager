@@ -1,6 +1,6 @@
-const Password = r => require.ensure([], () => r(require('@/pages/system/password.vue')), 'password')
-const Permit = r => require.ensure([], () => r(require('@/pages/system/permit.vue')), 'permit')
-const Other = r => require.ensure([], () => r(require('@/pages/system/other.vue')), 'other')
+const Password = () => import('@/pages/system/password')
+const Permit = () => import('@/pages/system/permit')
+const Other = () => import('@/pages/system/other')
 
 export default [
   {

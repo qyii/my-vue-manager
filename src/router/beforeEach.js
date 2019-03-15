@@ -3,6 +3,12 @@ import { LOGIN_PAGE_PATH } from '@/constants'
 
 export default function (to, from, next) {
   isAuthenticated().then(() => {
+    store.dispatch('permission/GET_ROUTES')
+    if (store.state.permission.acceptRoute.indexOf(to.name) === -1) {
+      next({
+        path: '/403'
+      })
+    }
     if (to.path !== LOGIN_PAGE_PATH) {
       doNext(to, next)
     } else {
