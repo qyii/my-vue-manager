@@ -6,13 +6,13 @@
         <Head />
         <div class="right-content">
           <nav-tabs />
-          <slot>Main</slot>
+          <router-view/>
         </div>
       </div>
     </main>
   </div>
   <div v-else>
-    <slot>Main</slot>
+    <router-view/>
   </div>
 </template>
 

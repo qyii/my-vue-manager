@@ -7,6 +7,10 @@ function resolve (dir) {
 
 module.exports = {
   lintOnSave: 'error',
+  devServer: {
+    host: '0.0.0.0',
+    port: 9900
+  },
   chainWebpack: config => {
     const svgRule = config.module.rule('svg')
     // 清除已有的所有 loader。
