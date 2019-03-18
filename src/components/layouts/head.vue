@@ -3,6 +3,12 @@
     <div :class="isCollapse ? 'menu-spread-active' : 'menu-spread'" @click="handleSpread">
       <my-icon class="menu-spread-icon" icon-class="spread"></my-icon>
     </div>
+    <el-breadcrumb separator="/" class="my-bread">
+      <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+      <template v-if="route.path !== '/home'">
+        <el-breadcrumb-item :key="i.name" v-for="i in route.matched" :replace="{path: i.path}">{{i.meta.name}}</el-breadcrumb-item>
+      </template>
+    </el-breadcrumb>
     <!-- <p>欢迎{{username}}</p> -->
     <el-dropdown @command="handleCommand">
       <span class="el-dropdown-link">
@@ -52,6 +58,9 @@ export default {
   computed: {
     isCollapse () {
       return this.$store.state.isCollapse
+    },
+    route () {
+      return this.$route
     }
   },
   methods: {
@@ -157,6 +166,11 @@ export default {
   .el-icon-arrow-down {
     line-height: 40px;
     vertical-align: top;
+  }
+  .my-bread {
+    height: 60px;
+    line-height: 60px;
+    float: left;
   }
 }
 </style>

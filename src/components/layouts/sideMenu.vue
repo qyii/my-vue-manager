@@ -16,7 +16,7 @@
       active-text-color="#3ce4e9"
       :collapse="isCollapse"
     >
-    <el-menu-item index="/">
+    <el-menu-item index="/home">
       <my-icon icon-class="home"></my-icon>
       <span>首页</span>
     </el-menu-item>

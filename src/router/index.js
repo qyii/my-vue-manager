@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Layout from '@/components/layouts'
 import Home from '@/pages/index'
 import Login from '@/pages/login'
 import $404 from '@/pages/404'
@@ -16,9 +17,18 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
-      component: Home,
-      meta: { activeMenu: '/' }
+      name: 'Main',
+      component: Layout,
+      meta: { activeMenu: '/home' },
+      redirect: '/home',
+      children: [
+        {
+          path: 'home',
+          name: 'Home',
+          component: Home,
+          meta: { activeMenu: '/home' }
+        }
+      ]
     },
     {
       path: '/login',
@@ -38,7 +48,7 @@ const router = new Router({
       component: $403,
       meta: { noLayouts: true }
     },
-    ...SystemRouter,
+    SystemRouter,
     { path: '*', redirect: '/404', hidden: true }
   ]
 })

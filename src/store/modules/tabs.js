@@ -1,6 +1,6 @@
 // import router from '@/router'
 
-const initTabs = [{ name: '首页', path: '/' }]
+const initTabs = [{ name: '首页', path: '/home' }]
 const convertParam = ({ name, meta, path }) => {
   return { pathname: name, name: meta.name || name, path }
 }
