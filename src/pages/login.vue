@@ -8,7 +8,7 @@
         <el-tabs v-model="activeName" @tab-click="handleTab">
           <!-- 用户名密码登录 -->
           <el-tab-pane label="用户名密码登录" name="normal">
-            <el-form ref="normalRef" :model="formData" :rules="formRules">
+            <el-form  @submit.native.prevent ref="normalRef" :model="formData" :rules="formRules">
               <el-form-item prop="username" label="">
                 <el-input v-model="formData.username" size="medium" placeholder="用户名">
                   <my-icon class="login-icon" slot="prefix" icon-class="user"></my-icon>
@@ -28,12 +28,12 @@
                 </el-col>
               </el-form-item>
               <el-form-item label="">
-                <el-button size="medium" type="primary" @click="handleLogin('normalRef')">登录</el-button>
+                <el-button size="medium" type="primary" native-type="submit" @click="handleLogin('normalRef')">登录</el-button>
               </el-form-item>
             </el-form>
           </el-tab-pane>
           <el-tab-pane label="手机号登录" name="mobile">
-            <el-form ref="mobileRef" :model="formData" :rules="formRules">
+            <el-form @submit.native.prevent ref="mobileRef" :model="formData" :rules="formRules">
               <el-form-item prop="mobile" label="">
                 <el-input v-model="formData.mobile" size="medium" placeholder="手机号">
                   <my-icon class="login-icon" slot="prefix" icon-class="phone"></my-icon>
@@ -48,7 +48,7 @@
                 </el-col>
               </el-form-item>
               <el-form-item label="">
-                <el-button size="medium" type="primary" @click="handleLogin('mobileRef')">登录</el-button>
+                <el-button native-type="submit" size="medium" type="primary" @click="handleLogin('mobileRef')">登录</el-button>
               </el-form-item>
             </el-form>
           </el-tab-pane>

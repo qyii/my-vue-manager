@@ -26,7 +26,7 @@ const router = new Router({
           path: 'home',
           name: 'Home',
           component: Home,
-          meta: { activeMenu: '/home' }
+          meta: { activeMenu: '/home', name: '首页' }
         }
       ]
     },

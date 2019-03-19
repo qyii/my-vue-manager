@@ -6,7 +6,7 @@
     <el-breadcrumb separator="/" class="my-bread">
       <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
       <template v-if="route.path !== '/home'">
-        <el-breadcrumb-item :key="i.name" v-for="i in route.matched" :replace="{path: i.path}">{{i.meta.name}}</el-breadcrumb-item>
+        <el-breadcrumb-item :key="i.name" v-for="i in route.matched" :replace="true">{{i.meta.name}}</el-breadcrumb-item>
       </template>
     </el-breadcrumb>
     <!-- <p>欢迎{{username}}</p> -->
