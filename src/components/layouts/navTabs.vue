@@ -1,15 +1,17 @@
 <template>
   <div class="nav-tabs">
-    <el-tag
-      :closable="index !== 0"
-      :type="route.path === tab.path ? 'success' : 'info'"
-      class="tab-tag"
-      v-for="(tab, index) in tabs"
-      :key="index"
-      @close="handleClose(tab)"
-    >
-      <router-link :to="tab.path"><span>{{tab.name}}</span></router-link>
-    </el-tag>
+    <el-scrollbar ref="scrollContainer" :vertical="false" class="scroll-tab" @wheel.native.prevent="handleScroll">
+      <el-tag
+        :closable="index !== 0"
+        :type="route.path === tab.path ? 'success' : 'info'"
+        class="tab-tag"
+        v-for="(tab, index) in tabs"
+        :key="index"
+        @close="handleClose(tab)"
+      >
+        <router-link :to="tab.path"><span>{{tab.name}}</span></router-link>
+      </el-tag>
+    </el-scrollbar>
   </div>
 </template>
 
@@ -21,6 +23,9 @@ export default {
     },
     tabs () {
       return this.$store.state.tabs.tabs
+    },
+    scrollWrapper () {
+      return this.$refs.scrollContainer.$refs.wrap
     }
   },
 
@@ -31,6 +36,12 @@ export default {
         this.$router.replace(this.tabs[this.tabs.length - 1].path)
       }
       // this.$router.replace(this.tabs[])
+    },
+
+    handleScroll (e) {
+      const eventDelta = e.wheelDelta || -e.deltaY * 40
+      const $scrollWrapper = this.scrollWrapper
+      $scrollWrapper.scrollLeft = $scrollWrapper.scrollLeft - eventDelta / 4
     }
   }
 }
@@ -38,10 +49,26 @@ export default {
 
 <style lang="scss" scoped>
 .nav-tabs {
-  overflow-x: auto;
+  width: 100%;
   height: 40px;
+  overflow: hidden;
+  .scroll-tab {
+    // overflow: hidden;
+    // position: relative;
+    // width: 100%;
+    white-space: nowrap;
+    // /deep/ {
+    //   .el-scrollbar__bar {
+    //     bottom: 0px;
+    //   }
+    //   .el-scrollbar__wrap {
+    //     height: 38px;
+    //   }
+    // }
+  }
   .tab-tag {
     cursor: pointer;
+    user-select: none;
     transition: all 0.2s;
   }
 }

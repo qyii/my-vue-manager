@@ -59,6 +59,7 @@ main {
   .right {
     flex: 1;
     box-sizing: border-box;
+    overflow: hidden;
   }
   .right-content {
     padding: 10px 8px;
