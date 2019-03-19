@@ -2,7 +2,8 @@
 const namespaced = true
 
 const state = {
-  acceptRoute: ['Home', 'Login', '404', '403']
+  acceptRoute: ['Home', 'Login', '404', '403'],
+  acceptBtn: ['delete', 'edit']
 }
 
 const actions = {

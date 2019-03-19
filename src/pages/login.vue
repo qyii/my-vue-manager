@@ -53,7 +53,7 @@
             </el-form>
           </el-tab-pane>
         </el-tabs>
-        <div>(账号密码随便写)</div>
+        <div v-permission="'delete'">(账号密码随便写)</div>
       </div>
     </div>
   </section>

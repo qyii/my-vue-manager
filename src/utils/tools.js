@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import axios from 'axios'
 import store from '@/store'
 /**
@@ -41,6 +42,10 @@ export function dateFormat (date, fmt = 'yyyy/MM/dd') {
   return fmt
 }
 
+/**
+ * 数组去重
+ * @param {*[]} arr
+ */
 export function arrRemoveDuplicates (arr) {
   return Array.from(new Set(arr))
 }
@@ -73,4 +78,15 @@ export function getInfo () {
       reject(new Error('请登录'))
     }
   })
+}
+
+/**
+ * 注册Vue部件得工具函数
+ * @param {String} type
+ * @param {Object} obj
+ */
+export function registerTool (type, obj) {
+  for (const key in obj) {
+    Vue[type](key, obj[key])
+  }
 }
