@@ -52,9 +52,9 @@ export default [
         }
       },
       {
-        path: '/richtext/vedio',
-        name: 'MedVedio',
-        component: 'pages/media/vedio',
+        path: '/richtext/video',
+        name: 'MedVideo',
+        component: 'pages/media/video',
         meta: {
           name: '视频'
         }
