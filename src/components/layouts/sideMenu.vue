@@ -8,7 +8,7 @@
     </router-link>
     <el-menu
       class="my-el-menu"
-      :default-active="route.meta.activeMenu"
+      :default-active="route.path"
       router
       unique-opened
       background-color="#192d4d"
@@ -16,26 +16,19 @@
       active-text-color="#3ce4e9"
       :collapse="isCollapse"
     >
-    <el-menu-item index="/home">
-      <my-icon icon-class="home"></my-icon>
-      <span>首页</span>
-    </el-menu-item>
-      <el-submenu index="system">
-        <template slot="title">
-          <my-icon icon-class="set"></my-icon>
-          <span>系统设置</span>
-        </template>
-        <el-menu-item-group>
-          <el-menu-item index="/system/permit">权限设置</el-menu-item>
-          <el-menu-item index="/system/password">密码设置</el-menu-item>
-          <el-menu-item index="/system/other">其他设置</el-menu-item>
-        </el-menu-item-group>
-      </el-submenu>
+      <el-menu-item index="/home">
+        <my-icon icon-class="home"></my-icon>
+        <span>首页</span>
+      </el-menu-item>
+      <menu-item :menus="menulist" />
     </el-menu>
   </el-aside>
 </template>
 
 <script>
+import MenuItem from './menuItem'
+import menulist from '@/mock/menulist'
+
 export default {
   computed: {
     route () {
@@ -44,6 +37,16 @@ export default {
     isCollapse () {
       return this.$store.state.isCollapse
     }
+  },
+
+  data () {
+    return {
+      menulist
+    }
+  },
+
+  components: {
+    MenuItem
   }
 }
 </script>

@@ -19,14 +19,13 @@ const router = new Router({
       path: '/',
       name: 'Main',
       component: Layout,
-      meta: { activeMenu: '/home' },
       redirect: '/home',
       children: [
         {
           path: 'home',
           name: 'Home',
           component: Home,
-          meta: { activeMenu: '/home', name: '首页' }
+          meta: { name: '首页' }
         }
       ]
     },
