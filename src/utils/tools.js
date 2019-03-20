@@ -81,12 +81,28 @@ export function getInfo () {
 }
 
 /**
- * 注册Vue部件得工具函数
- * @param {String} type
- * @param {Object} obj
+ * @description 注册Vue部件得工具函数
+ * @param {* String} type
+ * @param {* Object} obj
  */
 export function registerTool (type, obj) {
   for (const key in obj) {
     Vue[type](key, obj[key])
   }
+}
+
+/**
+ * @description 路由生产函数
+ * @param {* Array} routes
+ * @return {* Array}
+ */
+export function filterRoutes (routes) {
+  return routes.map(item => {
+    let com = item.component
+    item.component = () => import(`@/${com}`)
+    if (item.children) {
+      filterRoutes(item.children)
+    }
+    return item
+  })
 }

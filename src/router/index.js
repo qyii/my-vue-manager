@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import store from '@/store'
 import Router from 'vue-router'
 import Layout from '@/components/layouts'
 import Home from '@/pages/index'
@@ -7,8 +8,6 @@ import $404 from '@/pages/404'
 import $403 from '@/pages/403'
 
 import beforeEach from './beforeEach'
-
-import SystemRouter from './system.router'
 
 Vue.use(Router)
 
@@ -46,11 +45,12 @@ const router = new Router({
       name: '403',
       component: $403,
       meta: { noLayouts: true }
-    },
-    SystemRouter,
-    { path: '*', redirect: '/404', hidden: true }
+    }
   ]
 })
 
+store.dispatch('permission/GET_ASYNC_ROUTE')
+console.log(store.state.permission.asyncRouter)
+router.addRoutes([...store.state.permission.asyncRouter, { path: '*', redirect: '/404', hidden: true }])
 router.beforeEach(beforeEach)
 export default router

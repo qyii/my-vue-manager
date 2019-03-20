@@ -14,19 +14,19 @@ export default {
   },
   children: [
     {
-      path: 'password',
+      path: '/system/password',
       component: Password,
       name: 'SysPassword',
       meta: { name: '密码设置' }
     },
     {
-      path: 'permit',
+      path: '/system/permit',
       component: Permit,
       name: 'SysPermit',
       meta: { name: '权限设置' }
     },
     {
-      path: 'other',
+      path: '/system/other',
       component: Other,
       name: 'SysOther',
       meta: { name: '其他设置' }

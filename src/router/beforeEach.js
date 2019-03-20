@@ -3,13 +3,13 @@ import { LOGIN_PAGE_PATH, IGNORE_TABS } from '@/constants'
 
 export default function (to, from, next) {
   isAuthenticated().then(() => {
-    store.dispatch('permission/GET_ROUTES')
-    if (store.state.permission.acceptRoute.indexOf(to.name) === -1) {
-      next({
-        path: '/403'
-      })
-      return
-    }
+    // store.dispatch('permission/GET_ROUTES')
+    // if (store.state.permission.acceptRoute.indexOf(to.name) === -1) {
+    //   next({
+    //     path: '/403'
+    //   })
+    //   return
+    // }
     if (!IGNORE_TABS[to.name]) {
       store.dispatch('tabs/ADD', to)
     }

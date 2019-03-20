@@ -8,6 +8,15 @@ A vue manager demo, based on vue/vue-router/vuex/elementUI, inspired by [vue-ele
 
 This project is built with [vue cli 3](https://cli.vuejs.org).
 
+## todos
+- ~~菜单多层嵌套~~
+- ~~动态添加路由~~
+- 富文本
+- 多媒体
+  - 图片
+  - 视频
+  - 音频
+
 ## Project setup
 ```
 yarn install

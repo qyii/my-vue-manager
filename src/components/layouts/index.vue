@@ -26,6 +26,9 @@ export default {
     showLayouts () {
       this.$store.dispatch('LAYOUTS_STATUS', this.$route)
       return this.$store.state.showLayouts
+    },
+    asyncRoute () {
+      return this.$store.state.permission.asyncRouter
     }
   },
 
