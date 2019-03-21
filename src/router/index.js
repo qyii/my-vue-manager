@@ -50,7 +50,6 @@ const router = new Router({
 })
 
 store.dispatch('permission/GET_ASYNC_ROUTE')
-console.log(store.state.permission.asyncRouter)
 router.addRoutes([...store.state.permission.asyncRouter, { path: '*', redirect: '/404', hidden: true }])
 router.beforeEach(beforeEach)
 export default router

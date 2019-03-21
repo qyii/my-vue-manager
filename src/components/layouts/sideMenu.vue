@@ -8,7 +8,7 @@
     </router-link>
     <el-menu
       class="my-el-menu"
-      :default-active="route.path"
+      :default-active="activeMenu"
       router
       unique-opened
       background-color="#192d4d"
@@ -36,6 +36,9 @@ export default {
     },
     isCollapse () {
       return this.$store.state.isCollapse
+    },
+    activeMenu () {
+      return this.route.meta.activeMenu || this.route.path
     }
   },
 

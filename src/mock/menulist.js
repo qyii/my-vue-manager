@@ -106,6 +106,12 @@ export default [
         meta: { name: '权限设置' }
       },
       {
+        path: '/system/permit/:id',
+        component: 'pages/system/editPermit',
+        name: 'SysPermitEdit',
+        meta: { name: '编辑权限', activeMenu: '/system/permit' }
+      },
+      {
         path: '/system/other',
         component: 'pages/system/other',
         name: 'SysOther',

@@ -37,7 +37,7 @@ const mutations = {
     if (i === -1) {
       state.tabs.push(params)
     } else if (state.tabs[i].path !== params.path) {
-      state.tabs[i] = [...params]
+      state.tabs[i] = { ...params }
     }
   },
   OPEN_SUCCESS (state) {
