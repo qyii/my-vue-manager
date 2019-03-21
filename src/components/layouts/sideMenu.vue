@@ -20,7 +20,7 @@
         <my-icon icon-class="home"></my-icon>
         <span>首页</span>
       </el-menu-item>
-      <menu-item :menus="menulist" />
+      <menu-item :isCollapse="isCollapse" :menus="menulist" />
     </el-menu>
   </el-aside>
 </template>
