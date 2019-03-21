@@ -1,5 +1,5 @@
 <template>
-  <div class="layout" v-if="showLayouts">
+  <div class="layout">
     <main>
       <side-menu />
       <div class="right">
@@ -11,9 +11,6 @@
       </div>
     </main>
   </div>
-  <div v-else>
-    <router-view/>
-  </div>
 </template>
 
 <script>
@@ -23,10 +20,6 @@ import NavTabs from './navTabs'
 
 export default {
   computed: {
-    showLayouts () {
-      this.$store.dispatch('LAYOUTS_STATUS', this.$route)
-      return this.$store.state.showLayouts
-    },
     asyncRoute () {
       return this.$store.state.permission.asyncRouter
     }
