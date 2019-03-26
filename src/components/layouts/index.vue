@@ -55,7 +55,7 @@ main {
   .right {
     flex: 1;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow-y: auto;
   }
   .right-content {
     padding: 10px 8px;
