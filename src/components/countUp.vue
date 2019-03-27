@@ -34,7 +34,7 @@ export default {
       let speed = this.speed || 1500
       let max = this.to
       let min = this.from || 0
-      return (max - min) / speed * 60 | 0
+      return (max - min) / speed * 60 | 0 || 1
     }
   },
 
